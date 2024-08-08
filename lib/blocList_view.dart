@@ -7,6 +7,7 @@ class BlogListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(16, 17, 19, 100) ,
       appBar: AppBar(title: Text('SubSpace')),
       body: BlocBuilder<BlogBloc, BlogState>(
         builder: (context, state) {
