@@ -32,7 +32,7 @@ class _BlogListViewState extends State<BlogListView> {
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(16, 17, 19, 100),
         title: const Text('SubSpace', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900)),
-        
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
