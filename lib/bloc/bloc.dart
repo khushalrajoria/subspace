@@ -56,17 +56,18 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
     });
 
     // Registering the event handler for ToggleFavorite
-    on<ToggleFavorite>((event, emit) {
-      if (state is BlogLoaded) {
-        final loadedState = state as BlogLoaded;
-        final updatedBlogs = loadedState.blogs.map((blog) {
-          if (blog == event.blog) {
-            blog.toggleFavorite(); // Toggle the favorite status
-          }
-          return blog;
-        }).toList();
-        emit(BlogLoaded(updatedBlogs));
+   on<ToggleFavorite>((event, emit) {
+  if (state is BlogLoaded) {
+    final loadedState = state as BlogLoaded;
+    final updatedBlogs = loadedState.blogs.map((blog) {
+      if (blog == event.blog) {
+        blog.toggleFavorite(); // Make sure toggleFavorite is properly modifying the isFavorite field
       }
-    });
+      return blog;
+    }).toList();
+    emit(BlogLoaded(updatedBlogs));
+  }
+});
+
   }
 }

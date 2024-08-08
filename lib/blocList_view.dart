@@ -7,7 +7,7 @@ class BlogListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Blog Explorer')),
+      appBar: AppBar(title: Text('SubSpace')),
       body: BlocBuilder<BlogBloc, BlogState>(
         builder: (context, state) {
           if (state is BlogLoading) {
@@ -21,15 +21,15 @@ class BlogListView extends StatelessWidget {
   title: Text(blog.title),
   leading: Image.network(blog.imageUrl),
   trailing: IconButton(
-    icon: Icon(
-      // blog.isFavorite ? Icons.favorite : Icons.favorite_border,
-      // color: blog.isFavorite ? Colors.red : null,
-      Icons.abc_outlined
-    ),
-    onPressed: () {
-      BlocProvider.of<BlogBloc>(context).add(ToggleFavorite(blog));
-    },
+  icon: Icon(
+    (blog.isFavorite ?? false) ? Icons.favorite : Icons.favorite_border,
+    color: (blog.isFavorite ?? false) ? Colors.red : null,
   ),
+  onPressed: () {
+    BlocProvider.of<BlogBloc>(context).add(ToggleFavorite(blog));
+  },
+),
+
   onTap: () {
     Navigator.push(
       context,
