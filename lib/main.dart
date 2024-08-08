@@ -11,6 +11,7 @@ void main() {
     BlocProvider(
       create: (context) => BlogBloc(blogService)..add(LoadBlogs()),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: BlogListView(),
       ),
     ),
