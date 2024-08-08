@@ -8,12 +8,9 @@ abstract class BlogEvent extends Equatable {
 }
 
 class LoadBlogs extends BlogEvent {}
-
 class ToggleFavorite extends BlogEvent {
   final Blog blog;
-
   ToggleFavorite(this.blog);
-
   @override
   List<Object> get props => [blog];
 }
@@ -24,22 +21,16 @@ abstract class BlogState extends Equatable {
 }
 
 class BlogLoading extends BlogState {}
-
 class BlogLoaded extends BlogState {
   final List<Blog> blogs;
-
   BlogLoaded(this.blogs);
-
   @override
   List<Object> get props => [blogs];
 }
 
 class BlogError extends BlogState {}
-
-
 class BlogBloc extends Bloc<BlogEvent, BlogState> {
   final BlogService blogService;
-
   BlogBloc(this.blogService) : super(BlogLoading()) {
     on<LoadBlogs>((event, emit) async {
       emit(BlogLoading());

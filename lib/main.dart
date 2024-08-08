@@ -6,7 +6,6 @@ import 'services/bloc_services.dart';
 
 void main() {
   final BlogService blogService = BlogService();
-
   runApp(
     BlocProvider(
       create: (context) => BlogBloc(blogService)..add(LoadBlogs()),
