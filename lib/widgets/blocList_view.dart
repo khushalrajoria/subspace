@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'bloc/bloc.dart';
-import 'bloc_detailView.dart';
-import 'constants.dart';
+import '../bloc/bloc.dart';
+import '../bloc_detailView.dart';
+import '../constants/constants.dart';
 import 'news_card.dart'; // Import the NewsCard widget
 import 'skeleton.dart'; // Import the Skeleton widget
 
