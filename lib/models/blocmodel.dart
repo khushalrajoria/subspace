@@ -6,14 +6,14 @@ class Blog {
   Blog({
     required this.title,
     required this.imageUrl,
-    this.isFavorite = false, // Default value is set here
+    this.isFavorite = false,
   });
 
   factory Blog.fromJson(Map<String, dynamic> json) {
     return Blog(
       title: json['title'],
       imageUrl: json['image_url'],
-      isFavorite: json['is_favorite'] ?? false, // Safely handle null values
+      isFavorite: json['is_favorite'] ?? false, 
     );
   }
 
