@@ -44,29 +44,30 @@ class BlogError extends BlogState {}
 class BlogBloc extends Bloc<BlogEvent, BlogState> {
   final BlogService blogService;
 
-  BlogBloc(this.blogService) : super(BlogLoading());
-
-  Stream<BlogState> mapEventToState(BlogEvent event) async* {
-    if (event is LoadBlogs) {
-      yield BlogLoading();
+  BlogBloc(this.blogService) : super(BlogLoading()) {
+    // Registering the event handler for LoadBlogs
+    on<LoadBlogs>((event, emit) async {
+      emit(BlogLoading());
       try {
         final blogs = await blogService.fetchBlogs();
-        yield BlogLoaded(blogs);
+        emit(BlogLoaded(blogs));
       } catch (_) {
-        yield BlogError();
+        emit(BlogError());
       }
-    } else if (event is ToggleFavorite) {
-  if (state is BlogLoaded) {
-    final loadedState = state as BlogLoaded;
-    final updatedBlogs = loadedState.blogs.map((blog) {
-      if (blog == event.blog) {
-        blog.toggleFavorite(); // Toggle the favorite status
-      }
-      return blog;
-    }).toList();
-    yield BlogLoaded(updatedBlogs);
-  }
-}
+    });
 
+    // Registering the event handler for ToggleFavorite
+    on<ToggleFavorite>((event, emit) {
+      if (state is BlogLoaded) {
+        final loadedState = state as BlogLoaded;
+        final updatedBlogs = loadedState.blogs.map((blog) {
+          if (blog == event.blog) {
+            blog.toggleFavorite(); // Toggle the favorite status
+          }
+          return blog;
+        }).toList();
+        emit(BlogLoaded(updatedBlogs));
+      }
+    });
   }
 }
