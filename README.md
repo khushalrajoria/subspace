@@ -1,6 +1,6 @@
 # subspace
 
-A new Flutter project.
+A new Flutter project for applying to an internship
 
 ## Getting Started
 
