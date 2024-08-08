@@ -9,7 +9,7 @@ class BlogDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(blog.title)),
+      appBar: AppBar(title:Image.asset('assets/images/logo.png', fit: BoxFit.cover),),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
