@@ -5,6 +5,7 @@ A new Flutter project for applying to an internship
 ## Getting Started
 
 This project is a starting point for a Flutter application.
+Added API here provied by the hiring team, and added skeleton loading system here too.
 
 A few resources to get you started if this is your first Flutter project:
 
