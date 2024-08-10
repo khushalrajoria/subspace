@@ -51,7 +51,7 @@ SubSpace is a Flutter application that fetches and displays a list of blogs from
 ## API Integration
 
 The app integrates with a RESTful API to fetch blogs. The API request is handled using the HTTP package in Flutter.
-
+THIS ONLY PROVIDES BLOGS BY SUBSPACE CORPORATION
 Example request:
 ```sh
 curl --request GET \
