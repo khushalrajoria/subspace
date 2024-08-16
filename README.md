@@ -20,7 +20,7 @@ SubSpace is a Flutter application that fetches and displays a list of blogs from
 
 1. **Clone the Repository**
    ```sh
-   git clone https://github.com/yourusername/subspace.git
+   git clone https://github.com/khushalrajoria/subspace.git
    cd subspace
    ```
 
